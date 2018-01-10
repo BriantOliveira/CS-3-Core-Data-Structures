@@ -3,6 +3,8 @@
 import string
 import math
 import re
+
+import string
 # Hint: Use these string constants to encode/decode hexadecimal digits and more
 # string.digits is '0123456789'
 # string.hexdigits is '0123456789abcdefABCDEF'
@@ -19,22 +21,20 @@ def decode(digits, base):
     return: int -- integer representation of number (in base 10)"""
     # Handle up to base 36 [0-9a-z]
     assert 2 <= base <= 36, 'base is out of range: {}'.format(base)
-    # TODO: Decode digits from binary (base 2)
-    # TODO: Decode digits from hexadecimal (base 16)
-    # TODO: Decode digits from any base (2 up to 36)
-    digits_leght = len(digits)
+
+    digits_length = len(digits)
     base10 = 0
 
-    for i in range(digits_leght):
-        # Math.pow uses the base^index * value of i
-        # String,printable.index(digits[i].lower()) search for the element & returns the porsition in a list
-        base10 += string.printable.index(digits[i].lower()) * math.pow(base, digits_leght -i -1)
+    for i in range(digits_length):
+        # math.pow uses the formula base^index * [value of index]
+        # string.printable.index(digits[i].lower()) searches for the element, and returns the position in a list
+        base10 += string.printable.index(digits[i].lower()) * math.pow(base, digits_length -i -1)
     print(base10)
     return int(base10)
 
 
 def encode(number, base):
-    """Encode given number in base 10 to digits in given base.
+    """Encode given number in base10 to digits in given base.
     number: int -- integer representation of number (in base 10)
     base: int -- base to convert to
     return: str -- string representation of number (in given base)"""
@@ -42,21 +42,24 @@ def encode(number, base):
     assert 2 <= base <= 36, 'base is out of range: {}'.format(base)
     # Handle unsigned numbers only for now
     assert number >= 0, 'number is negative: {}'.format(number)
+
     value = []
     binary_str = ''
     # TODO: Encode number in binary (base 2)
-    # TODO: Encode number in hexadecimal (base 16)
     # TODO: Encode number in any base (2 up to 36)
+    # TODO: Encode number in hexadecimal (base 16)
+    # while the number is still divisible
     while number > 0:
-        #Get the remainder as a binary digit
+        # Get the remainder as the binary digit
         remainder = number % base
-        #Reset the value with the division of the base
+        # Reset the value of number with the division of the base
         number = int(number/base)
-        #Prepend the remaining to the list
+        # Prepend the remainder to the list
         value.insert(0, remainder)
-        #Convert each digit to a string and join
-        binary_str = ''.join(map(string, value))
-        return binary_str
+    # Join the list after converting each digit to a string
+    binary_str = ''.join(map(str, value))
+    return binary_str
+
 
 def convert(digits, base1, base2):
     """Convert given digits in base1 to digits in base2.
@@ -68,13 +71,10 @@ def convert(digits, base1, base2):
     assert 2 <= base1 <= 36, 'base1 is out of range: {}'.format(base1)
     assert 2 <= base2 <= 36, 'base2 is out of range: {}'.format(base2)
     # TODO: Convert digits from base 2 to base 16 (and vice versa)
-    # ...
     # TODO: Convert digits from base 2 to base 10 (and vice versa)
-    # ...
     # TODO: Convert digits from base 10 to base 16 (and vice versa)
-    # ...
     # TODO: Convert digits from any base to any base (2 up to 36)
-    # ...
+
 
 
 def main():
@@ -94,4 +94,5 @@ def main():
 
 
 if __name__ == '__main__':
+
     main()
