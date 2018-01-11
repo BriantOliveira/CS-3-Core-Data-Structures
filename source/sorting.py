@@ -57,22 +57,20 @@ def insertion_sort(items):
     # TODO: Repeat until all items are in sorted order
     # TODO: Take first unsorted item
     # TODO: Insert it in sorted order in front of items
-    left_bucket = 0
-
+    element = 0
+    #Repeat until every item is sorted
     while not is_sorted(items):
-        min = items[left_bucket]
-        min_index = left_bucket
+        #Take first unsorted element
+        for i in range(element, 0, -1):
+            item = items[i]
+            next_item = items[i -1]
 
-        #Find the min item that is sorted in the list
-        for i in range(left_bucket + 1, len(items)):
-            if min > items[i]:
-                min = items[i]
-                min_index = i
-        #Swap it with the 1st unsorted item on the lists
-        items[min_index] = items[left_bucket]
-        item[left_bucket] = min
-
-        left_bucket += 1
+            if next_item < item:
+                break
+            #Put on the sorted order
+            items[i] = next_item
+            items[i - 1] = item
+        element += 1
 
 def merge(items1, items2):
     """Merge given lists of items, each assumed to already be in sorted order,
