@@ -40,7 +40,14 @@ def selection_sort(items):
     # TODO: Repeat until all items are in sorted order
     # TODO: Find minimum item in unsorted items
     # TODO: Swap it with first unsorted item
-
+    for i in range(0, len(items) -1):
+        minIndex = i
+        for j in range(i + 1, len(items)):
+            if items[j] <  items[minIndex]:
+                minIndex = j
+        if minIndex != i:
+            items[i], items[minIndex] = items[minIndex], items[i]
+        return items
 
 def insertion_sort(items):
     """Sort given items by taking first unsorted item, inserting it in sorted
@@ -50,7 +57,22 @@ def insertion_sort(items):
     # TODO: Repeat until all items are in sorted order
     # TODO: Take first unsorted item
     # TODO: Insert it in sorted order in front of items
+    left_bucket = 0
 
+    while not is_sorted(items):
+        min = items[left_bucket]
+        min_index = left_bucket
+
+        #Find the min item that is sorted in the list
+        for i in range(left_bucket + 1, len(items)):
+            if min > items[i]:
+                min = items[i]
+                min_index = i
+        #Swap it with the 1st unsorted item on the lists
+        items[min_index] = items[left_bucket]
+        item[left_bucket] = min
+
+        left_bucket += 1
 
 def merge(items1, items2):
     """Merge given lists of items, each assumed to already be in sorted order,
