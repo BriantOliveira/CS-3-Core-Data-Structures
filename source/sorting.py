@@ -141,16 +141,26 @@ def split_sort_merge(items):
 
     #Return the sorted list and merge all sorted item into one
     return merge(left_half, right_half)
-    
+
 def merge_sort(items):
     """Sort given items by splitting list into two approximately equal halves,
     sorting each recursively, and merging results into a list in sorted order.
     TODO: Running time: ??? Why and under what conditions?
     TODO: Memory usage: ??? Why and under what conditions?"""
     # TODO: Check if list is so small it's already sorted (base case)
+    if len(items) < 2:
+        return
     # TODO: Split items list into approximately equal halves
+    equal_halves = len(items) // 2
+
+    left_half = items[:half]
+    right_half = items[:half]
     # TODO: Sort each half by recursively calling merge sort
+    merge_sort(left_half)
+    merge_sort(right_half)
     # TODO: Merge sorted halves into one list in sorted order
+    helper_function(left_half, right_half, items)
+
 
 
 def random_ints(count=20, min=1, max=50):
