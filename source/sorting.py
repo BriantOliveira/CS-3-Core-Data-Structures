@@ -80,6 +80,43 @@ def merge(items1, items2):
     # TODO: Repeat until one list is empty
     # TODO: Find minimum item in both lists and append it to new list
     # TODO: Append remaining items in non-empty list to new list
+    # Start a new list
+    new_list = [0] * (len(items1) + len(items))
+
+    #Call function helper
+    helper_function(items1, items2, new_list)
+
+    return new_list
+
+def helper_function(items1, items2, new_list):
+    left = 0
+    right = 0
+    i = 0
+
+    # Loop through the list
+    while True:
+    # Compare if left is smaller or empty
+        if left >= len(items1):
+            new_list[i:] = items2[right:]
+            break
+
+    #Compare if right is smaller or empty
+        if rigth >= len(items2):
+            new_list[i:] = items1[left]
+            break
+
+    # If left item is bigger add the right item and move the index
+        if items1[left] > items2[right]:
+            new_list[i] = items2[right]
+            right += 1
+    #If the right item is bigger add the left item and move the index
+        else:
+            new_list[i] = items1[left]
+            left += 1
+
+        i += 1
+
+
 
 
 def split_sort_merge(items):
