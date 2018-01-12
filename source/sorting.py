@@ -129,7 +129,19 @@ def split_sort_merge(items):
     # TODO: Sort each half using any other sorting algorithm
     # TODO: Merge sorted halves into one list in sorted order
 
+    half = len(items)//2
 
+    #Slip list in half halves
+    left_half = items[:half]
+    right_half = items[:half]
+
+    #Sort half list
+    selection_sort(left_half)
+    selection_sort(right_half)
+
+    #Return the sorted list and merge all sorted item into one
+    return merge(left_half, right_half)
+    
 def merge_sort(items):
     """Sort given items by splitting list into two approximately equal halves,
     sorting each recursively, and merging results into a list in sorted order.
