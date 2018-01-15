@@ -107,26 +107,44 @@ class LinkedList(object):
         if not (0 <= index <= self.size):
             raise ValueError('List index out of range: {}'.format(index))
         # TODO: Find the node before the given index and insert item after it
+        # if index == 0:
+        #     self.prepend(item)
+        # elif index > self.size():
+        #     print("Position is out of range")
+        # elif index == self.size():
+        #     self.append(item)
+        # else:
+        #     new_node = Node(item, index)
+        #     cur_node = self.head
+        #     previous = None
+        #
+        #     while cur_node.index != index:
+        #         previous = cur_node
+        #         cur_node = cur_node.next
+        #     previous.next = new_node
+        #     new_node.next = cur_node
+        #     new_node.back = previous
+        #     cur_node.back = new_node
+        #     cur_node = self.head
+        #     self.length(cur_node)
+
         if index == 0:
             self.prepend(item)
-        elif index > self.size():
-            print("Position is out of range")
-        elif index == self.size():
+        elif index == self.size:
             self.append(item)
         else:
-            new_node = Node(item, index)
+            new_node = Node(item)
             cur_node = self.head
             previous = None
-
-            while cur_node.index != index:
+            # Loop intil is out of range
+            for i in range(index):
+                #Set the previous to the previous node
                 previous = cur_node
-                cur_node = cur_node.next
+                #Setting the node to be the next
+                node = node.next
             previous.next = new_node
             new_node.next = cur_node
-            new_node.back = previous
-            cur_node.back = new_node
-            cur_node = self.head
-            self.length(cur_node)
+            self.size += 1
 
     def append(self, item):
         """Insert the given item at the tail of this linked list.
