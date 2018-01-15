@@ -21,6 +21,7 @@ def find_index(text, pattern):
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement find_index here (iteratively and/or recursively)
     cur_pattern = 0
+    cur_index = 0
     #If pattern is empty
     if pattern == '':
         return 0
@@ -33,8 +34,8 @@ def find_index(text, pattern):
             cur_pattern = cur_pattern + 1
             #If the leght of the cur_pattern is equal to the index we found the word
             if len(pattern) == cur_pattern:
-            last_index = cur_index - (cur_pattern -1)
-            return last_index
+                last_index = cur_index - (cur_pattern -1)
+                return last_index
     else:
         #If index is > than 0
         if cur_pattern > 0:
@@ -42,7 +43,7 @@ def find_index(text, pattern):
         #Reset to 0 and check again
         cur_index = 0
     cur_index += 1
-return None
+    return None
 
 
 def find_all_indexes(text, pattern):
@@ -79,7 +80,7 @@ def find_all_indexes(text, pattern):
         return []
     else:
         print('Last index is {}'.format(index_found))
-        return index_found 
+        return index_found
 
 def test_string_algorithms(text, pattern):
     found = contains(text, pattern)
