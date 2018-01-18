@@ -53,12 +53,13 @@ def is_palindrome_recursive(text, left=None, right=None):
         print("This is the text: {}".format(text))
     if len(text) < 1 or text == '':
             return True
-
+    #Since is recursive it redefines the value every time it passes
+    #We set the defaul value to 0 because left and right none only once
     if left is None and right is None:
         left = 0
         right = len(text) -1
     print("This is the indexes: {}, {}".format(left, right))
-
+    #runs if the center is not reached
     if left <= right:
         if text[left] == text[right]:
             is_palindrome_recursive(text, left=left + 1, right=right -1)
