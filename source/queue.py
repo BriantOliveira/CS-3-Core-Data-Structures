@@ -40,7 +40,8 @@ class LinkedQueue(object):
         or None if this queue is empty."""
         # TODO: Return front item, if any
         if self.is_empty():
-            raise ValueError
+            #raise ValueError
+            return None
         return self.list.head.data
 
     def dequeue(self):
@@ -48,7 +49,20 @@ class LinkedQueue(object):
         or raise ValueError if this queue is empty.
         Running time: O(???) – Why? [TODO]"""
         # TODO: Remove and return front item, if any
+        #Check if head is empty
+        if self.is_empty():
+            raise ValueError
+        #Set the data to the head
+        data = self.list.head.data
 
+        #Check is the current node is the head and the tail
+        if self.list.tail == self.list.head:
+            self.list.head = None
+            self.list.tail = None
+        else:
+            #If not move to the next node
+            self.list.head = self.list.head.next
+        return data
 
 # Implement ArrayQueue below, then change the assignment at the bottom
 # to use this Queue implementation to verify it passes all tests
