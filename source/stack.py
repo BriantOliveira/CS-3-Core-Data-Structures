@@ -69,6 +69,18 @@ class LinkedStack(object):
         Running time: O(???) – Why? [TODO]"""
         # TODO: Remove and return top item, if any
 
+        #check if the node is is_empty
+        if self.is_empty():
+            return None
+        #remove and return object to the top
+        else:
+            first_element = self.head
+            self.head = first_element.next
+            #Decrement the value of the size
+            self.size -= 1
+            #return data 
+            return first_element.data
+
 
 # Implement ArrayStack below, then change the assignment at the bottom
 # to use this Stack implementation to verify it passes all tests
