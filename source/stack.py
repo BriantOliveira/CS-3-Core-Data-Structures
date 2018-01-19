@@ -93,7 +93,8 @@ class LinkedStack(object):
 
         #check if the node is is_empty
         if self.is_empty():
-            return None
+            #return None
+            raise ValueError
         #remove and return object to the top
         # else:
         #     first_element = self.head
@@ -131,6 +132,7 @@ class ArrayStack(object):
     def is_empty(self):
         """Return True if this stack is empty, or False otherwise."""
         # TODO: Check if empty
+        return
 
     def length(self):
         """Return the number of items in this stack."""
