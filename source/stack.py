@@ -30,8 +30,19 @@ class LinkedStack(object):
     def length(self):
         """Return the number of items in this stack."""
         # TODO: Count number of items
-
-
+        #Node count initialized to zero
+        node_count = 0
+        #Start at the head node
+        node = self.head
+        #Loop until the node is None, which is one node far past the tail
+        while node is not None:
+            #Count one for this node
+            node_count += 1
+            #Skip to the next node
+            node = node.next
+        #Now node count contain the amount of nodes
+        return node_count
+        
     def push(self, item):
         """Insert the given item on the top of this stack.
         Running time: O(???) – Why? [TODO]"""
@@ -78,7 +89,7 @@ class LinkedStack(object):
             self.head = first_element.next
             #Decrement the value of the size
             self.size -= 1
-            #return data 
+            #return data
             return first_element.data
 
 
