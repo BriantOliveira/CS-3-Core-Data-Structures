@@ -31,6 +31,9 @@ class Doubly_LinkedQueue(object):
         """Return the number of items in this queue."""
         # TODO: Count number of items
         return self.list.length()
+        print(self.length)
+
+
     def enqueue_back(self, item):
         """Insert the given item at the back of this queue.
         Running time: O(???) – Why? [TODO]"""
@@ -45,6 +48,7 @@ class Doubly_LinkedQueue(object):
         self.list.prepend(item)
 
 
+
     def front(self):
         """Return the item at the front of this queue without removing it,
         or None if this queue is empty."""
@@ -52,7 +56,8 @@ class Doubly_LinkedQueue(object):
         if self.is_empty():
             #raise ValueError
             return None
-        return self.list.head.data
+        #return self.list.head.data
+        self.list.pop(-1)
 
     def back(self):
         if self.is_empty():
