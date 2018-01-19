@@ -62,7 +62,7 @@ def is_palindrome_recursive(text, left=None, right=None):
     #runs if the center is not reached
     if left <= right:
         if text[left] == text[right]:
-            is_palindrome_recursive(text, left=left + 1, right=right -1)
+            is_palindrome_recursive(text, left + 1, right -1)
         else:
             print("Sorry this is not a palindrome...")
             return False
