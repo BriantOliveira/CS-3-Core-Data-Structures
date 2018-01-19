@@ -109,7 +109,9 @@ class ArrayQueue(object):
         or raise ValueError if this queue is empty.
         Running time: O(???) – Why? [TODO]"""
         # TODO: Remove and return front item, if any
-
+        if self.is_empty():
+            raise ValueError
+        return self.list.pop(0)
 
 # Implement LinkedQueue and ArrayQueue above, then change the assignment below
 # to use each of your Queue implementations to verify they each pass all tests
