@@ -15,6 +15,14 @@ class LinkedStack(object):
             for item in iterable:
                 self.push(item)
 
+    # def __str__(self):
+    #     return_str = ''
+    #     cur_node = self.head
+    #     while cur_node is not None:
+    #         return_str += str(cur_node.data)
+    #         current_none = cur_node.next
+    #     return return_str
+
     def __repr__(self):
         """Return a string representation of this stack."""
         return 'Stack({} items, top={})'.format(self.length(), self.peek())
@@ -42,7 +50,7 @@ class LinkedStack(object):
             node = node.next
         #Now node count contain the amount of nodes
         return node_count
-        
+
     def push(self, item):
         """Insert the given item on the top of this stack.
         Running time: O(???) – Why? [TODO]"""
@@ -55,6 +63,8 @@ class LinkedStack(object):
         self.head = new_node
         self.head.next = next_node
         self.size +=1
+
+
 
 
     def peek(self):
