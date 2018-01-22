@@ -42,7 +42,10 @@ class Teleo():
 
     def route_cost(self, number):
         """
-        List of route cost to check
+        List of route cost to check:
+        You have a carrier route list with 100,000(100K) entries (in arbitrary order)
+        and a list of 1000 phone numbers. How can you operationalize the route cost
+        look up problem?
         """
         route_prices = {}
 
