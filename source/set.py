@@ -24,7 +24,7 @@ class Set(object):
     def add(self, element):
         """ Add element to this set, if not present already """
         #Check is there is a element in the set
-        if element is not in self.data.keys():
+        if element not in self.data.keys():
              self.data.set(element, None)
              # If the set is none add 1
              self.size += 1
@@ -35,7 +35,7 @@ class Set(object):
         """Remove element from this set, if present, or else raise KeyError"""
 
         #If the element is in the set
-        if element is in self.data.keys():
+        if element in self.data.keys():
             # Delete the element
             self.data.delete(element)
             #Resize the set
@@ -54,7 +54,7 @@ class Set(object):
 
         else:
             #Add the new element to the new_set
-            new_set.data.append(element)
+            new_set.add(element)
 
         return new_set
 
@@ -70,7 +70,7 @@ class Set(object):
             for element in self.data.keys():
                 if self.data.contains(element):
                     #Add the element to the new set
-                    new_set.data.append(element)
+                    new_set.add(element)
                 return new_set
             else:
                 return ValueError("The set is empty...")
@@ -80,10 +80,39 @@ class Set(object):
         #Check if the set is empty
         if other_set.data and self.data is None:
             new_set = Set()
-            #Check if the set contains the element, if so remove 
+            #Check if the set contains the element, if so remove
             for element in self.data.keys():
                 if self.data.contains(element):
                     new_set.data.remove(element)
 
             new_set = self.data.keys()
             return new_set
+
+    def is_subset(other_set):
+        """return a boolean indicating whether other_set is a subset of this set"""
+
+        if other_set and self.data is not None:
+            for element in self.data.keys():
+                if self.data.contains(element):
+                    continue
+                else:
+                    return False
+            return True
+
+def test_set():
+    new_set = Set()
+    new_set.add("Hello")
+    new_set.add("v")
+    new_set.contains("world")
+    new_set.add("k")
+    other_set = Set()
+    other_set.add('why')
+    other_set.add("l")
+    set_test = new_set.union(other_set)
+    #inter_set = new_set.intersection(other_set)
+    print(new_set.data)
+    print(other_set.data)
+    print(set_test.data)
+
+if __name__ == '__main__':
+    test_set()
