@@ -18,6 +18,7 @@ class set(object):
         """
         contain = self.data.contains(element)
         return contain
+
     def add(self, element):
         """ Add element to this set, if not present already """
 
@@ -26,4 +27,13 @@ class set(object):
              self.size += 1
         else:
             return ValueError("The element in set exit already")
-            
+
+    def remove(element):
+        """Remove element from this set, if present, or else raise KeyError"""
+
+        if element is in self.data.keys():
+            self.data.delete(element)
+            self.size -= 1
+        else:
+            return ValueError('The element does not exist in set')
+        
