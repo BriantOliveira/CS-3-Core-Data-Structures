@@ -22,4 +22,8 @@ class set(object):
         """ Add element to this set, if not present already """
 
         if element is not in self.data.keys():
-             
+             self.data.set(element, None)
+             self.size += 1
+        else:
+            return ValueError("The element in set exit already")
+            
