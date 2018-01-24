@@ -1,6 +1,6 @@
 from hashtable import HashTable
 
-class set(object):
+class Set(object):
     def __init__(self, elements=None):
         self.size = 0
         if elements is None:
@@ -36,4 +36,39 @@ class set(object):
             self.size -= 1
         else:
             return ValueError('The element does not exist in set')
-        
+
+    def union(self, other_set):
+        """return a new set that is the union of this set and other_set"""
+
+        new_set = Set(self.data.keys())
+
+        for element in other_set.data.keys():
+            if self.data.contains(element):
+                continue
+
+        else:
+            new_set.data.append(element)
+
+        return new_set
+
+    def intersection(other_set):
+        """
+        return a new set that is the intersection of this set and other_set
+        """
+        if other_set.data and self.data is None:
+            new_set = Set()
+
+            for element in self.data.keys():
+                if self.data.contains(element):
+                    new_set.data.append(element)
+                return new_set
+            else:
+                return ValueError("The set is empty...")
+
+    def difference(other_set):
+        """ return a new set that is the difference of this set and other_set """
+
+        if other_set.data and self.data is None:
+            new_set = Set()
+
+            for element in self
