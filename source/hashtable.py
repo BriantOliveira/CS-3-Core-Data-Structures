@@ -8,6 +8,7 @@ class HashTable(object):
     def __init__(self, init_size=8):
         """Initialize this hash table with the given initial size."""
         self.buckets = [LinkedList() for i in range(init_size)]
+        # self.buckets = [LinkedList()] * init_size
         self.size = 0  # Number of key-value entries
 
     def __str__(self):
@@ -157,7 +158,10 @@ class HashTable(object):
 
         #Create a temp list
         temp_list = self.items()
+        # Re-initialize
+        # self.__init__(new_size)
         self.buckets = [LinkedList() for _ in range(new_size)]
+        # self.buckets = [LinkedList()] * new_size
         #Set the size of the new list to 0 AKA empty
         self.size = 0
         #Inserting the key value to the new list

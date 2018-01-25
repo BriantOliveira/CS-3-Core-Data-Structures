@@ -2,34 +2,32 @@ from hashtable import HashTable
 
 class Set(object):
     def __init__(self, elements=None):
+        # property that tracks the number of elements in constant time
         self.size = 0
+        # Initialize a new HashTable to store the set elements
         if elements is None:
             self.data = HashTable(4)
         else:
             self.data = HashTable(len(elements))
-
-    def size(self):
-        """Returns if its True, else is False"""
-        #Return the size of the set
-        return self.size
 
     def contains(self, element):
         """
         return a boolean indicating whether element is in this set
         """
         #Checking if the element is in the set
-        contain = self.data.contains(element)
-        return contain
+        return self.data.contains(element)
 
     def add(self, element):
         """ Add element to this set, if not present already """
-        #Check is there is a element in the set
-        if element not in self.data.keys():
+        #Check if this element is in the set
+        #if element not in self.data.keys():
+        if not self.contains(element):
              self.data.set(element, None)
              # If the set is none add 1
              self.size += 1
+             #print('HERE', element)
         else:
-            return ValueError("The element in set exit already")
+            return ValueError("Element {!r} already exists in set".format(element))
 
     def remove(element):
         """Remove element from this set, if present, or else raise KeyError"""
@@ -52,9 +50,9 @@ class Set(object):
             if self.data.contains(element):
                 continue
 
-        else:
-            #Add the new element to the new_set
-            new_set.add(element)
+            else:
+                #Add the new element to the new_set
+                new_set.add(element)
 
         return new_set
 
