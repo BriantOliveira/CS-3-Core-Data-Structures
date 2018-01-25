@@ -1,45 +1,55 @@
 from hashtable  import HashTable
+from stack import ArrayStack
 
 
 class CircularBuffer(object):
     #initialize a new circular buffer that can store at most max_size items
-    def __init__(self, max_size):
+    def __init__(self, max_size=7):
+        self.list = ArrayStack()
         self.max = max_size
-        self.data = []
-
-    #property that tracks the number of items in the buffer
-    def size(self):
-        return self.size
+        self.size = 0
+        self.start = 3
+        self.end = 0
 
     #check if the buffer is empty
     def is_empty(self):
-        return self.head is None
+        return self.start is None
+
+    def length(self):
+        return self.size
 
     def is_full(self):
     #check if the buffer is full
-    if self.data not is_empty():
-        if len(self.data) == self.max:
-        return ValueError('Buffer is full...')
+
+        if self.size == self.max:
+            return ValueError('Buffer is full...')
 
     def enqueue(self, item):
         #insert item at the back of the buffer
-        self.max.append(item)
+        self.list.end.add(item)
+        self.end += 1
+        self.size += 1
 
     def front(self):
         #return the item at the front of the buffer
         if self.is_empty():
             return None
-        return self.max.head.data
+        return self.list[self.start]
 
     def dequeue(self):
         #remove and return the item at the front of the buffe
         if self.is_empty():
             raise ValueError
-        data = self.max.head.data
 
-        if self.max.tail == self.max.head:
-            self.max.head = None
-            self.max.tail = None
-        else:
-            self.max.head = self.max.head.next
-        return data
+        new_start = self.list.remove(self.start)
+        self.start += 1
+        self.size -= 1
+
+        if self.start == max_size:
+            self.start = self.start - self.max
+
+
+        return self.start
+
+
+CircularBuffer = CircularBuffer
