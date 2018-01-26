@@ -56,6 +56,37 @@ class Teleo():
 
         return route_prices
 
+class MultiCarrier:
+
+    def __init__(self, file_name):
+        self.routers = []
+
+                for name in file_name:
+                    self.routers.append(Router(name))
+
+    def route_princes(self, number):
+        """
+        Senario 4: High-throughput pricing API
+        You have 5 carrier route list, each with 10,000,000 entries (in arbitrary order)
+        and you want to create a web-service API to allow clients to price a call before
+        it is initiated. How can you create an efficient route cost lookup solution that
+        can handle high spikes of traffic (up to 10,000 request per min) without overloading
+        your API servers?
+        """
+
+        route_cost = None
+
+        #Loop through every routes
+        for route in self.routers:
+            price = route.cost(number)
+
+            if route_cost is None or price < route_cost:
+                route_cost = price
+        return route_cost
+
+
+
+
 if __name__== '__main__':
     inst = Teleo('../routes/route-costs-1000000.txt')
     inst.cost('..routes/route-costs-1000000')
