@@ -1,3 +1,5 @@
+# Exclude call routing project data files (some are very large)
+routing/data/
 
 # Created by https://www.gitignore.io/api/macos,python
 
