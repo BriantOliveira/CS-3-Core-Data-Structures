@@ -64,7 +64,7 @@ class MultiCarrier:
                 for name in file_name:
                     self.routers.append(Router(name))
 
-    def route_princes(self, number):
+    def route_prices(self, number):
         """
         Senario 4: High-throughput pricing API
         You have 5 carrier route list, each with 10,000,000 entries (in arbitrary order)
