@@ -88,5 +88,5 @@ class MultiCarrier:
 
 
 if __name__== '__main__':
-    inst = Teleo('../routes/route-costs-1000000.txt')
-    inst.cost('..routes/route-costs-1000000')
+    inst = Teleo('../routing/data/route-costs-1000000.txt')
+    #inst.cost('../routing/data/route-costs-1000000')
