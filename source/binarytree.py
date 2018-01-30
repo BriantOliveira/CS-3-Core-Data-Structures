@@ -193,7 +193,7 @@ class BinarySearchTree(object):
         if node.left is not None:
             self._traverse_in_order_recursive(node.left, visit)
         # TODO: Visit this node's data with given function
-            visit(node.data)
+        visit(node.data)
         # TODO: Traverse right subtree, if it exists
         if node.right is not None:
             self._traverse_in_order_recursive(node.right, visit)
@@ -282,7 +282,7 @@ class BinarySearchTree(object):
             self._traverse_post_order_recursive(node.left, visit)
         # TODO: Traverse right subtree, if it exists
         if node.right is not None:
-            self._traverse_pre_order_recursive(node.right, visit)
+            self._traverse_post_order_recursive(node.right, visit)
         # TODO: Visit this node's data with given function
         visit(node.data)
 
