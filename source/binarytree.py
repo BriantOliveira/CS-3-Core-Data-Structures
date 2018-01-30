@@ -1,5 +1,6 @@
 #!python
 from queue import LinkedQueue
+#from stack import LinkedStack
 
 class BinaryTreeNode(object):
 
@@ -204,6 +205,31 @@ class BinarySearchTree(object):
         TODO: Memory usage: ??? Why and under what conditions?"""
         # TODO: Traverse in-order without using recursion (stretch challenge)
 
+        #Set the current to the root of the tree
+        current = node.root
+
+        visit(current.data)
+        while (current is not None):
+            if current.left is None:
+                print(current.data)
+                current = current.right
+            else:
+                #Find the inorder predecessor of current
+                pre = current.left
+                while (pre.right is not None and pre.right != current):
+                    pre = pre.right
+
+                #Make current as right child of it's predecessor of current
+                if (pre.right is None):
+                    pre.right = current
+                    current = current.left
+
+                #Revert the changes made in if part to restore the
+                #original tree fix the right child of predecessor
+                else:
+                    pre.right = None
+                    print(current.data)
+                    current = current.right
 
     def items_pre_order(self):
         """Return a pre-order list of all items in this binary search tree."""
@@ -235,6 +261,8 @@ class BinarySearchTree(object):
         TODO: Memory usage: ??? Why and under what conditions?"""
         # TODO: Traverse pre-order without using recursion (stretch challenge)
 
+        stack = None
+
     def items_post_order(self):
         """Return a post-order list of all items in this binary search tree."""
         items = []
@@ -265,6 +293,37 @@ class BinarySearchTree(object):
         TODO: Running time: ??? Why and under what conditions?
         TODO: Memory usage: ??? Why and under what conditions?"""
         # TODO: Traverse post-order without using recursion (stretch challenge)
+
+        #Set the current to the root
+        node = self.root
+        current = node
+
+        #Loop until left is null
+        while (current is not None):
+            if current.left is not None:
+                print(current.data)
+                current = current.right
+            else:
+                #Find the inorder posdecessor of current
+                post = current.left
+                while (post.right is not None and post.right != current):
+                    post = post.right
+                    visit(node.data)
+
+                #Make current as right child of posdecessor of current
+                if (post.right is None):
+                    post.right = current
+                    current = current.left
+
+                else:
+                    #Revert the changes made if part to restore the
+                    #original tree fix the right child of prodecessor
+                    post.right = None
+                    print(current.data)
+                    current = current.right
+        visit(current.data)
+
+
 
     def items_level_order(self):
         """Return a level-order list of all items in this binary search tree."""
