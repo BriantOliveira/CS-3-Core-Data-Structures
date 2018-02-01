@@ -39,10 +39,14 @@ class BinaryTreeNode(object):
         if self.is_leaf():
             return 0
         # TODO: Check if right child has a value and if so calculate its height
-        if (self.right is not None):
-            self.left = self.height()
+        if self.left is not None:
+            left_height = self.left.height()
+
+        if self.right is not None:
+            left_height = self.right.height()
+            
         # Return one more than the greater of the left height and right height
-        return max(self.left, self.right) + 1
+        return max(left_height, right_height) + 1
 
 
 
