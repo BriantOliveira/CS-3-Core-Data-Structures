@@ -38,13 +38,15 @@ class BinaryTreeNode(object):
         # TODO: Check if left child has a value and if so calculate its height
         if self.is_leaf():
             return 0
+        #Set a defaulf value to left because python3 gives an error when max(0, 1) + 1
+        left_height = 0 
         # TODO: Check if right child has a value and if so calculate its height
         if self.left is not None:
             left_height = self.left.height()
 
         if self.right is not None:
             left_height = self.right.height()
-            
+
         # Return one more than the greater of the left height and right height
         return max(left_height, right_height) + 1
 
