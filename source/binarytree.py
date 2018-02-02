@@ -38,7 +38,7 @@ class BinaryTreeNode(object):
         # TODO: Check if left child has a value and if so calculate its height
         if self.is_leaf():
             return 0
-            
+
         #Set a defaulf value to left_height and right_height because python3 gives an error when max(0, 1) + 1
         left_height = 0
 
@@ -326,7 +326,7 @@ class BinarySearchTree(object):
 
                 else:
                     #Revert the changes made if part to restore the
-                    #original tree fix the right child of prodecessor
+                    #original tree fix the right child of posdecessor
                     post.right = None
                     print(current.data)
                     current = current.right
